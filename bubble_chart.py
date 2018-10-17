@@ -14,7 +14,7 @@ data = [go.Scatter(x=df['horsepower'],
                                showscale=True))]
 
 
-layout = go.Layout(title='Bubble Chart')
+layout = go.Layout(title='Bubble Chart', hovermode='closest')
 fig = go.Figure(data=data, layout=layout)
 
 pyo.plot(fig)
