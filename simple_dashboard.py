@@ -16,7 +16,9 @@ data_1 = [trace_1]
 
 # Create plotly layout
 
-layout_1 = go.Layout(title='Old Faithful')
+layout_1 = go.Layout(title='Old Faithful',
+                     xaxis={'title': 'Duration'},
+                     yaxis={'title': 'Interval'})
 
 
 # Launch the app
