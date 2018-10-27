@@ -15,12 +15,13 @@ app = dash.Dash()
 
 app.layout = html.Div([
     dcc.Graph(id='graph'),
-    dcc.Dropdown(id='drop', options=year_options, value=df['year'].min())
+    dcc.Dropdown(id='year-picker', options=year_options,
+                 value=df['year'].min())
 ])
 
 
 @app.callback(Output('graph', 'figure'),
-              [Input('drop', 'value')])
+              [Input('year-picker', 'value')])
 def update_figure(selected_year):
     filtered_df = df[df['year'] == selected_year]
     traces = []
@@ -40,7 +41,7 @@ def update_figure(selected_year):
     return {'data': traces,
             'layout': go.Layout(title='My Plot',
                                 xaxis={'title': 'GDP', 'type': 'log'},
-                                yaxis={'title': 'Life Exp', })
+                                yaxis={'title': 'Life Exp'})
             }
 
 
